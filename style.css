@@ -21,6 +21,7 @@ button {
     margin-top: 20px;
     font-size: 18px;
     padding: 5px;
+    margin-bottom: 10px;
 }
 
 #save-button {
@@ -33,4 +34,8 @@ button {
 
 #save-button:hover {
     background-color: #2ecc71;
+}
+
+#saved-words {
+    margin-top: 20px;
 }

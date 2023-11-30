@@ -1,7 +1,10 @@
 const keyboardContainer = document.getElementById('keyboard-container');
 const wordInput = document.getElementById('word-input');
+const savedWordsContainer = document.getElementById('saved-words');
 
 const keyboardLetters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+
+let savedWords = [];
 
 keyboardLetters.forEach(letter => {
     const button = document.createElement('button');
@@ -16,8 +19,20 @@ function appendLetter(letter) {
 
 function saveWord() {
     const word = wordInput.value;
-    console.log('Palavra salva:', word);
-    wordInput.value = '';
+    if (word !== '') {
+        savedWords.push(word);
+        displaySavedWords();
+        wordInput.value = '';
+    }
+}
+
+function displaySavedWords() {
+    savedWordsContainer.innerHTML = '<strong>Palavras Salvas:</strong>';
+    savedWords.forEach(savedWord => {
+        const p = document.createElement('p');
+        p.textContent = savedWord;
+        savedWordsContainer.appendChild(p);
+    });
 }
 
 document.getElementById('save-button').addEventListener('click', saveWord);
