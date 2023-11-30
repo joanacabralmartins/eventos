@@ -35,4 +35,10 @@ function displaySavedWords() {
     });
 }
 
+function deleteLastLetter() {
+    const currentWord = wordInput.value;
+    wordInput.value = currentWord.slice(0, -1);
+}
+
 document.getElementById('save-button').addEventListener('click', saveWord);
+document.getElementById('backspace-button').addEventListener('click', deleteLastLetter);
